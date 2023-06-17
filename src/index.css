@@ -1,0 +1,462 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/************* App.js *************/
+.toast-position {
+  bottom: 10vh !important;
+}
+
+
+/************* Layout.js (of Navbar, main content, and footer) *************/
+.layout { /* source: https://stackoverflow.com/questions/33924655/position-last-flex-item-at-the-end-of-container */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 40px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+/************* Forbidden.js *************/
+div.forbidden {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5rem;
+  align-items: center;
+  margin-top: 20vh; /* manually vertically center forbidden text */
+}
+h1.forbidden {
+  display: block;
+  font-size: 4vw;
+  line-height: 0;
+  font-weight: 700;
+}
+h2.forbidden {
+  display: block;
+  font-size: 3vw;
+  line-height: 0;
+  font-weight: 500;
+}
+
+
+/************* NavBar.js *************/
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.5rem/* 32px */;
+  padding-bottom: 1rem/* 32px */;
+  margin-left: auto;
+  margin-right: auto;
+  --bg-opacity: 0.8;
+  background-color: rgb(0 0 0 / var(--bg-opacity));
+}
+
+.nav-logo {
+  width: 50px;
+}
+
+.nav-options {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+}
+
+.nav-not-signed {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-signed {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.nav-hide-element {
+  display: none;
+}
+
+.nav-button {
+  display: inline;
+  --text-opacity: 1;
+  color: rgb(255 255 255 / var(--text-opacity));
+  padding: 0;
+  font-weight: 700;
+  font-size: 1.125rem/* 18px */;
+  line-height: 1.75rem/* 28px */;
+}
+
+/* navigation underline animation */
+/* source: https://css-tricks.com/css-link-hover-effects/ */
+.nav-make-line {
+  position: relative;
+}
+.nav-make-line::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: skyblue;
+  bottom: -8px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+.nav-make-line:hover::before {
+  content: '';
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/************* HomePage *************/
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4rem;
+  margin-top: 2rem;
+}
+
+.home h1 {
+  font-size: 4vw;
+  line-height: 0;
+  font-weight: 700;
+}
+
+.home .h-grid {
+  display: flex;
+  width: 98%; /* rest of width is basically padding from left and right */
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.home .h-grid h2 {
+  font-size: 3vw;
+  line-height: 0.7;
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+.home .h-grid span {
+  display: block;
+  padding-top: 2rem;
+  font-size: 1.5vw;
+}
+
+.home .span-hyperlink {
+  color: blue;
+}
+
+.gallery {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding-bottom: 40px;
+}
+
+/************* Footer *************/
+.footer {
+  display: flex;
+  margin-top: auto; /* positions footer at end of page when it is a flex child. Source: https://stackoverflow.com/questions/33924655/position-last-flex-item-at-the-end-of-container#:~:text=This%20will%20position%20the%20last%20element%20at%20the%20bottom */
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  bottom: 0;
+  --bg-opacity: 0.6;
+  background-color: rgb(0 0 0 / var(--bg-opacity));
+}
+.footer .h-grid {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 1.2rem;
+}
+
+.footer .copyright {
+  --text-opacity: 1;
+  color: rgb(255 255 255 / var(--text-opacity));
+}
+
+.footer .social-grid {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1.8rem;
+}
+
+.footer .social-icon img {
+  height: 2rem;
+}
+
+/************* MakeOrder.js *************/
+.row-center-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/************* MakeOrderForm.js *************/
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 1.25rem;
+  --bg-opacity: 0.7;
+  background-color: rgb(0 0 0 / var(--bg-opacity));
+  border-radius: 3%;
+  box-shadow: 15px 15px 8px  rgba(0,0,0,0.6);
+}
+
+
+.form-top {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3rem;
+}
+
+.form-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* nothing to add for form-right */
+
+.product-img {
+  border-radius: 5%;
+}
+
+.form-bottom {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+
+.form-button {
+  --bg-opacity: 1;
+  background-color: white !important; /* button's bg color won't change if !important is not added */
+  border-radius: 0.75rem;
+  margin-top: 1rem /* 16px */;
+  padding: 0.5rem 2rem 0.5rem  2rem;
+  align-self: center;
+}
+
+.form-label {
+  --text-opacity: 1;
+    color: rgb(255 255 255 / var(--text-opacity));
+    font-weight: 700;
+}
+
+.label-and-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.input-box {
+  border-radius: 0.5rem;
+  min-width: 250px;
+  padding: 0.5rem;
+}
+
+.form-input-error {
+  --bg-opacity: 1;
+    background-color: rgb(153 27 27 / var(--bg-opacity));
+    color: white;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    min-width: 250px;
+    padding: 0.5rem;
+}
+
+
+/************* OrdersList.js *************/
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: left;
+  padding-left: 20px; 
+}
+
+/************* OrderSummary.js *************/
+.summary-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 30px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5%;
+  padding: 20px;
+  width: fit-content;
+}
+.summary-card:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.2);
+}
+
+/* nothing to add in .left-summary-card */
+
+.order-img {
+  border-radius: 5%;
+}
+
+.right-summary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/************* OrderDetailsForm.js *************/
+/* most css in that .js file is taken from css used in MakeOrderForm.js */
+.form-label-and-sublabel-col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-label-and-sublabel-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-self: center;
+}
+
+.form-sublabel {
+  --text-opacity: 1;
+  color: rgb(255 255 255 / var(--text-opacity));
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.order-details-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.center-label {
+  align-self: center;
+}
+
+/************* AboutPage.js *************/
+/* most css in that .js file is taken from css used in HomePage.js */
+.home h3 {
+  display: block;
+  font-size: 1.8vw;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 0;
+}
+
+/************* StViewAllOrders.js *************/
+.view-all-orders {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4rem;
+}
+
+.view-all-orders .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.view-all-orders .bottom .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+/************* StGenerateReport.js *************/
+.generate-report {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.generate-report .bottom {
+  display: flex;
+  flex-direction: row;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+.report-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5%;
+  padding: 20px;
+  width: fit-content;
+}
+.report-card p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bottom .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+/************* ProductSummary.js *************/
+.product-summary-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 30px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5%;
+  padding: 20px;
+  width: fit-content;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
